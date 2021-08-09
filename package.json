@@ -10,19 +10,22 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@types/node": "^16.4.13",
+    "@types/react": "^17.0.16",
+    "@types/react-dom": "^17.0.9",
     "bnc-notify": "^1.7.0",
     "bnc-onboard": "^1.33.0",
     "ethers": "^5.4.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "style-components": "^0.1.0",
+    "styled-components": "^5.3.0",
     "styled-system": "^5.1.5",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -50,6 +53,8 @@
   },
   "devDependencies": {
     "@typechain/ethers-v5": "^7.0.1",
+    "@types/styled-components": "^5.1.12",
+    "@types/styled-system": "^5.1.12",
     "prettier": "^2.3.2",
     "typechain": "^5.1.2"
   }
