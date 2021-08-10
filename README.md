@@ -14,6 +14,7 @@ clone repo
 
 install deps
 
+    $ cd simple-token-sender
     $ yarn
 
 run client
