@@ -15,7 +15,7 @@ export function isValidAddress(address: string): boolean {
 }
 
 export function isValidSendValue(value: string) {
-  return !isNaN(parseFloat(value)) && !value.includes('e')
+  return !isNaN(parseFloat(value)) && !value.includes('e') && !value.includes('-')
 }
 
 export function trimDecimals(value: string) {
