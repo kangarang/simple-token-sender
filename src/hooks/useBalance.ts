@@ -4,31 +4,37 @@ import { formatBaseValue } from 'utils/helpers'
 import { useWallet } from 'components/WalletContext'
 import { useContract } from './useContract'
 
+const initialState = {
+  eth: BigNumber.from(0),
+  token: BigNumber.from(0),
+}
+
 export function useBalance(address) {
   const { provider } = useWallet()
   const { contract } = useContract()
 
-  const [balances, setBalances] = useState({
-    eth: BigNumber.from(0),
-    token: BigNumber.from(0),
-  })
+  const [balances, setBalances] = useState(initialState)
 
   useEffect(() => {
     async function fetchBalances() {
-      console.log('fetching balances...')
+      if (address) {
+        console.log('fetching balances...')
 
-      try {
-        const ethBalance = await provider?.getBalance(address)
-        const tokenBalance = await contract?.balanceOf(address)
+        try {
+          const ethBalance = await provider?.getBalance(address)
+          const tokenBalance = await contract?.balanceOf(address)
 
-        if (ethBalance && tokenBalance) {
-          setBalances({
-            eth: ethBalance,
-            token: tokenBalance,
-          })
+          if (ethBalance && tokenBalance) {
+            setBalances({
+              eth: ethBalance,
+              token: tokenBalance,
+            })
+          }
+        } catch (error) {
+          console.log(`error:`, error)
         }
-      } catch (error) {
-        console.log(`error:`, error)
+      } else {
+        setBalances(initialState)
       }
     }
 

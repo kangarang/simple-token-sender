@@ -10,13 +10,18 @@ import { bncDappId } from 'utils/config'
 
 const chainId = 4
 
+enum NetworkName {
+  Mainnet = 1,
+  Rinkeby = 4,
+}
+
 interface WalletContextValue {
   onboard?: API
   notify?: any
   provider?: Web3Provider
   signer?: Signer
   address?: string
-  network?: number
+  network?: string
   selectWallet(): any
   checkWallet(): any
   logoutWallet(): any
@@ -37,7 +42,7 @@ const WalletContext = createContext<WalletContextValue>({
 const WalletProvider = ({ children }: any) => {
   const [provider, setProvider] = useState<Web3Provider>()
   const [address, setAddress] = useState<string>()
-  const [network, setNetwork] = useState<number>()
+  const [network, setNetwork] = useState<string>()
   const [signer, setSigner] = useState<Signer>()
   const [onboard, setOnboard] = useState<API>()
   const [notify, setNotify] = useState<any>()
@@ -50,7 +55,10 @@ const WalletProvider = ({ children }: any) => {
       blockPollingInterval: 5000,
       subscriptions: {
         address: address => (address ? setAddress(getChecksummedAddress(address)) : ''),
-        network: setNetwork,
+        network: networkId => {
+          const networkName = NetworkName[networkId]
+          setNetwork(networkName)
+        },
         wallet: wallet => {
           if (wallet.provider) {
             const ethersProvider = new ethers.providers.Web3Provider(wallet.provider)

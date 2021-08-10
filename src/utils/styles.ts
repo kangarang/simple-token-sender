@@ -57,7 +57,7 @@ export const theme = {
     copy: 1.5,
   },
   fonts: ['Helvetica', 'sans-serif'],
-  borders: [0, '1px solid', '2px solid', `1px solid ${COLORS.cyan}`],
+  borders: [0, '1px solid black', `2px solid ${COLORS.purple}`, `1px solid ${COLORS.cyan}`],
   radii: [0, 2, 4, 16, 9999, '100%'],
   shadows: ['0px 5px 20px rgba(0, 0, 0, 0.1)', '0px 4px 10px #00000099'],
   sizes: [16, 32, 64, 128, 256],

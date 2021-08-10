@@ -1,18 +1,32 @@
 import { Box, Flex } from './ui'
+import Icon from './ui/Icon'
 import { useWallet } from './WalletContext'
+import logoutIcon from 'img/logout.svg'
 
 export function ConnectWallet() {
-  const { address, selectWallet } = useWallet()
+  const { address, network, selectWallet, logoutWallet } = useWallet()
 
   return (
     <Box>
       {address ? (
-        <Box>
-          <Flex>{address}</Flex>
-        </Box>
+        <Flex alignCenter>
+          <Box mr={3}>{network}</Box>
+          <Flex bg="cyan" border={1} p={2} alignCenter>
+            <Box>{address}</Box>
+
+            <Icon
+              cursor="true"
+              ml={3}
+              bg="pink"
+              src={logoutIcon}
+              width={24}
+              onClick={logoutWallet}
+            />
+          </Flex>
+        </Flex>
       ) : (
-        <Box>
-          <Flex onClick={selectWallet}>Connect Wallet</Flex>
+        <Box border={2} p={2} cursor="true" onClick={selectWallet}>
+          Connect Wallet
         </Box>
       )}
     </Box>

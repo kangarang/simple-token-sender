@@ -1,6 +1,5 @@
 export * from './Button'
 
-export * from './Box'
 export { default as Box } from './Box'
 export { default as Flex } from './Flex'
 
