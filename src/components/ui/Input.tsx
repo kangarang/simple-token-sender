@@ -32,6 +32,7 @@ type InputProps = BackgroundProps &
 
 const Input = styled.input<InputProps>`
   box-sizing: 'border-box';
+  font-family: monospace;
 
   &:focus {
     outline: none;
