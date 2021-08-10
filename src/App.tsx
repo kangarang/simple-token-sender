@@ -1,10 +1,10 @@
-import Header from 'components/Header'
 import Providers from 'components/Providers'
+import HomePage from 'components/HomePage'
 
 function App() {
   return (
     <Providers>
-      <Header />
+      <HomePage />
     </Providers>
   )
 }

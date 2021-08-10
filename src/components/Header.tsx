@@ -1,14 +1,9 @@
 import { ConnectWallet } from './ConnectWallet'
 import { Box, Flex } from './ui'
-import { useWallet } from './WalletContext'
-import { useBalance } from 'hooks/useBalance'
 
-function Header() {
-  const { address } = useWallet()
-  const { ethBalance, tokenBalance } = useBalance(address)
-
+function Header({ ethBalance, tokenBalance }) {
   return (
-    <Flex justifyBetween p={3}>
+    <Flex justifyBetween p={3} borderBottom={1}>
       <Box>
         <Flex>ETH: {ethBalance}</Flex>
         <Flex>UNI: {tokenBalance}</Flex>

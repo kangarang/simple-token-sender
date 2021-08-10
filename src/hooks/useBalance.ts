@@ -44,6 +44,7 @@ export function useBalance(address) {
     const pollInterval = 5000
     const timeoutId = setInterval(fetchBalances, pollInterval)
     return () => clearInterval(timeoutId)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address])
 
   return {
