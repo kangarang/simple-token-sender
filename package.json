@@ -1,5 +1,5 @@
 {
-  "name": "eth-on-deck",
+  "name": "simple-token-sender",
   "version": "0.1.0",
   "private": true,
   "engines": {
