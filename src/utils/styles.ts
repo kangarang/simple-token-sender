@@ -1,3 +1,30 @@
+import {
+  BackgroundProps,
+  BorderProps,
+  ColorProps,
+  FlexboxProps,
+  GridProps,
+  LayoutProps,
+  PositionProps,
+  ShadowProps,
+  SpaceProps,
+  TypographyProps,
+  background,
+  border,
+  color,
+  compose,
+  flexbox,
+  grid,
+  layout,
+  position,
+  shadow,
+  space,
+  typography,
+  system,
+  get,
+  Scale,
+} from 'styled-system'
+
 export const COLORS = {
   black: '#000000',
   white: '#F0F0F0',
@@ -65,3 +92,72 @@ export const theme = {
     ...COLORS,
   },
 }
+
+export const composedStyleFns = () =>
+  compose(
+    space,
+    color,
+    layout,
+    typography,
+    border,
+    background,
+    shadow,
+    position,
+    flexbox,
+    grid,
+    system
+  )
+
+export type ComposedStyleProps = BackgroundProps &
+  BorderProps &
+  ColorProps &
+  FlexboxProps &
+  LayoutProps &
+  PositionProps &
+  ShadowProps &
+  TypographyProps &
+  SpaceProps &
+  GridProps
+
+export interface SquareDimensions {
+  size?: number | string
+  width?: number | string
+}
+
+export interface EzProps {
+  bold?: boolean
+  pointer?: boolean
+  fullWidth?: boolean
+}
+
+export function ezProps(props: EzProps) {
+  const { bold = false, pointer = false, fullWidth = false } = props
+  let str = ''
+
+  if (bold) {
+    str = 'font-weight: bold;'
+  }
+
+  if (pointer) {
+    str = `${str}cursor: pointer;`
+  }
+
+  if (fullWidth) {
+    str = `${str}width: 100%;`
+  }
+
+  return str
+}
+
+export function squareDimensions({ size = 24, width }: SquareDimensions) {
+  if (width) {
+    size = width
+  }
+
+  return `width: ${size}px; height: ${size}px;`
+}
+
+const isNumber = (n: any) => typeof n === 'number' && !isNaN(n)
+
+export const getValue = (n: any, scale: Scale | undefined): any =>
+  get(scale, n, !isNumber(n) || n > 1 ? n : n * 100 + '%')

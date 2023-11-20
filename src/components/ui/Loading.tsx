@@ -1,6 +1,5 @@
-import React from 'react'
-import styled from 'styled-components/macro'
-import loadingSvg from 'img/loading.svg'
+import styled from 'styled-components'
+import loadingSvg from '../../img/loading.svg'
 
 const Wrapper = styled.div`
   display: block;

@@ -1,34 +1,7 @@
-import styled from 'styled-components/macro'
-import {
-  background,
-  BackgroundProps,
-  border,
-  BorderProps,
-  color,
-  ColorProps,
-  flexbox,
-  FlexboxProps,
-  layout,
-  LayoutProps,
-  position,
-  PositionProps,
-  shadow,
-  ShadowProps,
-  space,
-  SpaceProps,
-  typography,
-  TypographyProps,
-} from 'styled-system'
+import styled from 'styled-components'
+import { composedStyleFns, ComposedStyleProps } from 'utils/styles'
 
-type ImageProps = BackgroundProps &
-  BorderProps &
-  ColorProps &
-  FlexboxProps &
-  LayoutProps &
-  PositionProps &
-  ShadowProps &
-  SpaceProps &
-  TypographyProps
+type ImageProps = ComposedStyleProps
 
 const Image = styled.img<ImageProps & { width?: any }>`
   box-sizing: 'border-box';
@@ -37,15 +10,7 @@ const Image = styled.img<ImageProps & { width?: any }>`
     outline: none;
   }
 
-  ${space};
-  ${color};
-  ${typography};
-  ${flexbox};
-  ${border};
-  ${background};
-  ${shadow};
-  ${position};
-  ${layout};
+${composedStyleFns}
 `
 
 export default Image

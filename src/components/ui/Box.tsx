@@ -1,24 +1,5 @@
-import styled from 'styled-components/macro'
-import {
-  space,
-  color,
-  layout,
-  typography,
-  flexbox,
-  border,
-  background,
-  shadow,
-  position,
-  SpaceProps,
-  ColorProps,
-  LayoutProps,
-  TypographyProps,
-  FlexboxProps,
-  BorderProps,
-  BackgroundProps,
-  ShadowProps,
-  PositionProps,
-} from 'styled-system'
+import styled from 'styled-components'
+import { ComposedStyleProps, composedStyleFns } from 'utils/styles'
 
 interface BoxBaseProps {
   children?: any
@@ -28,31 +9,14 @@ interface BoxBaseProps {
   disabled?: boolean
 }
 
-export type BoxProps = SpaceProps &
-  ColorProps &
-  LayoutProps &
-  TypographyProps &
-  FlexboxProps &
-  BorderProps &
-  BackgroundProps &
-  ShadowProps &
-  PositionProps &
-  BoxBaseProps & { cursor?: string; bold?: boolean; id?: string }
+export type BoxProps = BoxBaseProps & ComposedStyleProps & { cursor?: string; bold?: boolean; id?: string }
 
-const Box: React.FC<BoxProps> = styled.div<BoxProps>`
+const Box = styled.div<BoxProps>`
   box-sizing: border-box;
 
   ${({ bold }: any) => bold && 'font-weight: bold;'}
 
-  ${space};
-  ${color};
-  ${layout};
-  ${typography};
-  ${flexbox};
-  ${border};
-  ${background};
-  ${shadow};
-  ${position};
+  ${composedStyleFns}
 
   ${({ cursor }: any) => cursor && 'cursor: pointer;'}
 

@@ -1,36 +1,7 @@
-import styled from 'styled-components/macro'
-import {
-  background,
-  BackgroundProps,
-  border,
-  BorderProps,
-  color,
-  ColorProps,
-  flexbox,
-  FlexboxProps,
-  layout,
-  LayoutProps,
-  position,
-  PositionProps,
-  shadow,
-  ShadowProps,
-  space,
-  SpaceProps,
-  typography,
-  TypographyProps,
-} from 'styled-system'
+import styled from 'styled-components'
+import { composedStyleFns, ComposedStyleProps } from 'utils/styles'
 
-type InputProps = BackgroundProps &
-  BorderProps &
-  ColorProps &
-  FlexboxProps &
-  LayoutProps &
-  PositionProps &
-  ShadowProps &
-  SpaceProps &
-  TypographyProps
-
-const Input = styled.input<InputProps>`
+const Input = styled.input<ComposedStyleProps>`
   box-sizing: 'border-box';
   font-family: monospace;
 
@@ -38,15 +9,7 @@ const Input = styled.input<InputProps>`
     outline: none;
   }
 
-  ${space};
-  ${color};
-  ${layout};
-  ${typography};
-  ${flexbox};
-  ${border};
-  ${background};
-  ${shadow};
-  ${position};
+  ${composedStyleFns}
 `
 
 export default Input

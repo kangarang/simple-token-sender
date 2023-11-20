@@ -26,7 +26,7 @@ export function TokenTransfer({ tokenBalanceBase }) {
         const tx = await contract.transfer(sendTo, baseValue)
 
         handleTx(tx.hash)
-      } catch (error) {
+      } catch (error: any) {
         console.log(`error:`, error)
         if (error.message.includes('User denied transaction signature') && isTransactionReady()) {
           setTransferStatus(TransferStatus.ready)

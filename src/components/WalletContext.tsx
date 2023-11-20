@@ -8,11 +8,11 @@ import { getItem, removeItem, setItem } from 'utils/localStorage'
 import { getChecksummedAddress } from 'utils/helpers'
 import { bncDappId } from 'utils/config'
 
-const chainId = 4
+const chainId = 10
 
 enum NetworkName {
   Mainnet = 1,
-  Rinkeby = 4,
+  Optimism = 10,
 }
 
 interface WalletContextValue {

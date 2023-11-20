@@ -7,7 +7,7 @@ export function useContract() {
   const [contract, setContract] = useState<BasicToken>()
   const { signer } = useWallet()
 
-  const chainId = 4
+  const chainId = 10
   const tokenAddress = tokenAddressByChainId[chainId]
 
   useEffect(() => {

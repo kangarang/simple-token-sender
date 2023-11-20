@@ -1,7 +1,7 @@
 import { Box, Flex } from './ui'
 import Icon from './ui/Icon'
 import { useWallet } from './WalletContext'
-import logoutIcon from 'img/logout.svg'
+import logoutIcon from '../img/logout.svg'
 
 export function ConnectWallet() {
   const { address, network, selectWallet, logoutWallet } = useWallet()

@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 import {
   space,
   color,
@@ -12,6 +12,7 @@ import {
   FlexboxProps,
 } from 'styled-system'
 import { BoxProps } from './Box'
+import { ComposedStyleProps, composedStyleFns } from 'utils/styles'
 
 interface FlexBaseProps {
   id?: string
@@ -27,10 +28,9 @@ interface FlexBaseProps {
 }
 
 type FlexProps = BoxProps &
-  FlexBaseProps &
-  FlexboxProps & { style?: any; bold?: boolean; wrap?: boolean | string }
+  FlexBaseProps & { style?: any; bold?: boolean; wrap?: boolean | string } & ComposedStyleProps
 
-const Flex: React.FC<FlexProps> = styled.div`
+const Flex = styled.div<FlexProps>`
   box-sizing: border-box;
   display: flex;
   flex-wrap: ${(props: any) => {
@@ -59,15 +59,7 @@ const Flex: React.FC<FlexProps> = styled.div`
   ${({ bold }: any) => bold && 'font-weight: bold;'}
   ${({ cursor }: any) => cursor && 'cursor: pointer;'}
 
-  ${space};
-  ${color};
-  ${layout};
-  ${typography};
-  ${border};
-  ${background};
-  ${shadow};
-  ${position};
-  ${flexbox};
+  ${composedStyleFns}
 `
 
 export default Flex
