@@ -2,6 +2,15 @@
   "name": "simple-token-sender",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kangarang/simple-token-sender.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kangarang/simple-token-sender/issues"
+  },
+  "homepage": "https://github.com/kangarang/simple-token-sender",
+  "author": "kangarang",
   "engines": {
     "node": ">=14.17.0"
   },
